@@ -1,9 +1,9 @@
 ESX = exports["es_extended"]:getSharedObject()
 
 AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
-    local times_minutes = { 300, 240, 180, 120, 60 }
+    local announceMin = { 300, 240, 180, 120, 60 }
 
-    for _, timess in ipairs(times_minutes) do
+    for _, timess in ipairs(announceMin) do
         if eventData.secondsRemaining == timess then
             CreateThread(function()
                 for _, playerId in pairs(ESX.GetPlayers()) do
